@@ -1,4 +1,12 @@
-# ignore temp files
+# ignore build artifacts and generated database files
+build/
+*.o
 *.autosave
 *.swp
 *.pro.user
+.qmake.stash
+FaceRecognition
+Makefile
+ui_mainwindow.h
+facedatabase.xml
+database_faces/

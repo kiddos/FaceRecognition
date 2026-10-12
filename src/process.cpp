@@ -85,9 +85,9 @@ namespace process {
     Mat gray;
 
     if (image.channels() == 3) {
-      cvtColor(image, gray, CV_BGR2GRAY);
+      cvtColor(image, gray, cv::COLOR_BGR2GRAY);
     } else if (image.channels() == 4) {
-      cvtColor(image, gray, CV_BGRA2GRAY);
+      cvtColor(image, gray, cv::COLOR_BGRA2GRAY);
     } else if (image.channels() == 1) {
       image.copyTo(gray);
     } else {
@@ -131,9 +131,9 @@ namespace process {
 
     // convert to gray image
     if (image.channels() == 3) {
-      cvtColor(image, gray, CV_BGR2GRAY);
+      cvtColor(image, gray, cv::COLOR_BGR2GRAY);
     } else if (image.channels() == 4) {
-      cvtColor(image, gray, CV_BGRA2GRAY);
+      cvtColor(image, gray, cv::COLOR_BGRA2GRAY);
     } else if (image.channels() == 1) {
       image.copyTo(gray);
     } else {
@@ -223,9 +223,9 @@ namespace process {
     Mat gray;
 
     if (image.channels() == 3) {
-      cvtColor(image, gray, CV_BGR2GRAY);
+      cvtColor(image, gray, cv::COLOR_BGR2GRAY);
     } else if (image.channels() == 4) {
-      cvtColor(image, gray, CV_BGRA2GRAY);
+      cvtColor(image, gray, cv::COLOR_BGRA2GRAY);
     } else if (image.channels() == 1) {
       image.copyTo(gray);
     } else {
@@ -298,9 +298,9 @@ namespace process {
     Mat gray;
 
     if (image.channels() == 3) {
-      cvtColor(image, gray, CV_BGR2GRAY);
+      cvtColor(image, gray, cv::COLOR_BGR2GRAY);
     } else if (image.channels() == 4) {
-      cvtColor(image, gray, CV_BGRA2GRAY);
+      cvtColor(image, gray, cv::COLOR_BGRA2GRAY);
     } else if (image.channels() == 1) {
       image.copyTo(gray);
     } else {

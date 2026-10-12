@@ -6,49 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>892</height>
+    <width>1100</width>
+    <height>850</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>YOLO Face Recognition &amp; Database System</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="0" colspan="2">
-     <widget class="QWidget" name="logWidget" native="true">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>200</height>
-       </size>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_4">
-       <item row="0" column="0">
-        <widget class="QTextEdit" name="logText">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>160</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Sans</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
     <item row="0" column="0">
      <widget class="QWidget" name="mainWidget" native="true">
       <layout class="QHBoxLayout" name="horizontalLayout"/>
@@ -58,390 +24,154 @@
      <widget class="QWidget" name="controlWidget" native="true">
       <property name="maximumSize">
        <size>
-        <width>300</width>
+        <width>340</width>
         <height>16777215</height>
        </size>
       </property>
-      <layout class="QGridLayout" name="gridLayout_2">
+      <layout class="QVBoxLayout" name="controlLayout">
+       <item>
+        <widget class="QGroupBox" name="cropGroupBox">
+         <property name="title">
+          <string>YOLO Detected Face</string>
+         </property>
+         <layout class="QVBoxLayout" name="faceCropLayout">
+          <item>
+           <widget class="QWidget" name="faceWidget" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>160</width>
+              <height>160</height>
+             </size>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="0" column="0">
+              <layout class="QVBoxLayout" name="faceLayout"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="whoLabel">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Recognition Status: Waiting...</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="addFaceGroup">
+         <property name="title">
+          <string>Add Face to Database</string>
+         </property>
+         <layout class="QVBoxLayout" name="addFaceLayout">
+          <item>
+           <layout class="QHBoxLayout" name="nameInputLayout">
+            <item>
+             <widget class="QLabel" name="lblName">
+              <property name="text">
+               <string>Name:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lePersonName">
+              <property name="placeholderText">
+               <string>Enter person name...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnAddCurrentFace">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Add Current Face to DB</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnImportFaceImage">
+            <property name="font">
+             <font>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Import Face Image to DB...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="databaseGroup">
+         <property name="title">
+          <string>Existing Face Database</string>
+         </property>
+         <layout class="QVBoxLayout" name="dbLayout">
+          <item>
+           <widget class="QListWidget" name="listEnrolledPersons"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="dbBtnLayout">
+            <item>
+             <widget class="QPushButton" name="btnDeletePerson">
+              <property name="text">
+               <string>Delete</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnClearDatabase">
+              <property name="text">
+               <string>Clear DB</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QWidget" name="logWidget" native="true">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>150</height>
+       </size>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_4">
        <item row="0" column="0">
-        <layout class="QVBoxLayout" name="controlLayout">
-         <item>
-          <layout class="QVBoxLayout" name="takePictureLayout">
-           <item>
-            <widget class="QWidget" name="faceWidget" native="true">
-             <property name="minimumSize">
-              <size>
-               <width>160</width>
-               <height>160</height>
-              </size>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_3">
-              <item row="0" column="0">
-               <layout class="QVBoxLayout" name="faceLayout"/>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="selectButton">
-             <property name="font">
-              <font>
-               <family>Sans</family>
-               <pointsize>14</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Take Picture</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="resumeButton">
-             <property name="font">
-              <font>
-               <family>Sans</family>
-               <pointsize>14</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Resume</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="addNewLayout">
-             <item>
-              <widget class="QPushButton" name="addButton">
-               <property name="font">
-                <font>
-                 <family>Sans</family>
-                 <pointsize>14</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>add new</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="leNew">
-               <property name="font">
-                <font>
-                 <family>Sauce Code Pro</family>
-                 <pointsize>14</pointsize>
-                </font>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="yesnoLayout">
-           <property name="bottomMargin">
-            <number>30</number>
-           </property>
-           <item>
-            <widget class="QLabel" name="whoLabel">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>66</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Sans</family>
-               <pointsize>16</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Are you ...?</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="buttonLayout">
-             <item>
-              <widget class="QPushButton" name="yesButton">
-               <property name="font">
-                <font>
-                 <family>Sans</family>
-                 <pointsize>14</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Yes</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="noButton">
-               <property name="font">
-                <font>
-                 <family>Sans</family>
-                 <pointsize>14</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>No</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="selectLayot">
-           <property name="bottomMargin">
-            <number>20</number>
-           </property>
-           <item>
-            <widget class="QLabel" name="indicatorLabel">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>36</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Sans</family>
-               <pointsize>14</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>If Not, Who are you?</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QComboBox" name="selectComboBox">
-             <property name="font">
-              <font>
-               <family>Sans</family>
-               <pointsize>14</pointsize>
-              </font>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="trainingParameterLayout">
-           <item>
-            <layout class="QHBoxLayout" name="imageSizeLayout">
-             <item>
-              <widget class="QLabel" name="imageSizeLabel">
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>20</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>image size:</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="imageSizeEdit">
-               <property name="maximumSize">
-                <size>
-                 <width>36</width>
-                 <height>20</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>32</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="startingGammaLayout">
-             <item>
-              <widget class="QLabel" name="startingGammaLabel">
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>20</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>starting gamma:</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="startingGamma">
-               <property name="maximumSize">
-                <size>
-                 <width>60</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" name="trainingStepLayout">
-             <item>
-              <widget class="QGroupBox" name="radioGroup">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>60</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>60</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Sans</family>
-                </font>
-               </property>
-               <property name="title">
-                <string>feature type:</string>
-               </property>
-               <widget class="QWidget" name="horizontalLayoutWidget">
-                <property name="geometry">
-                 <rect>
-                  <x>6</x>
-                  <y>20</y>
-                  <width>289</width>
-                  <height>31</height>
-                 </rect>
-                </property>
-                <layout class="QHBoxLayout" name="rbGroupLayout">
-                 <item>
-                  <widget class="QRadioButton" name="rbHAAR">
-                   <property name="text">
-                    <string>HAAR</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="rbLBP">
-                   <property name="font">
-                    <font>
-                     <family>Sans</family>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>LBP</string>
-                   </property>
-                   <property name="checked">
-                    <bool>false</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="rbLTP">
-                   <property name="font">
-                    <font>
-                     <family>Sans</family>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>LTP</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QRadioButton" name="rbCSLTP">
-                   <property name="font">
-                    <font>
-                     <family>Sans</family>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>CSLTP</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label">
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>20</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>training step:</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="trainingStepSelectLayout">
-               <item>
-                <widget class="QSlider" name="tssSlider">
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="tssLabel">
-                 <property name="minimumSize">
-                  <size>
-                   <width>60</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>60</width>
-                   <height>12</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>0.1</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QPushButton" name="trainButton">
-           <property name="font">
-            <font>
-             <family>Sans</family>
-             <pointsize>14</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Train</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QTextEdit" name="logText">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -453,56 +183,30 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1024</width>
-     <height>24</height>
+     <width>1100</width>
+     <height>22</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Sans</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <widget class="QMenu" name="menuModel">
-    <property name="font">
-     <font>
-      <family>Sans</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
+   <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>Model</string>
+     <string>File</string>
     </property>
-    <addaction name="actionAdd_new_person"/>
-    <addaction name="separator"/>
-    <addaction name="actionExport"/>
-    <addaction name="actionImport"/>
-    <addaction name="separator"/>
-    <addaction name="actionTrain"/>
+    <addaction name="actionAddPerson"/>
+    <addaction name="actionImportImage"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
-   <addaction name="menuModel"/>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionAdd_new_person">
+  <action name="actionAddPerson">
    <property name="text">
-    <string>Add new person</string>
+    <string>Add Person to DB</string>
    </property>
   </action>
-  <action name="actionExport">
+  <action name="actionImportImage">
    <property name="text">
-    <string>Export</string>
-   </property>
-  </action>
-  <action name="actionImport">
-   <property name="text">
-    <string>Import</string>
-   </property>
-  </action>
-  <action name="actionTrain">
-   <property name="text">
-    <string>Train</string>
+    <string>Import Image to DB</string>
    </property>
   </action>
   <action name="actionExit">
