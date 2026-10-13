@@ -10,6 +10,23 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/ui)
 
+# Auto-download YOLO model weights if missing
+set(YOLO_WEIGHTS_FILE "${CMAKE_CURRENT_SOURCE_DIR}/models/yolov4-tiny.weights")
+set(YOLO_WEIGHTS_URL "https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.weights")
+
+if(NOT EXISTS "${YOLO_WEIGHTS_FILE}")
+    message(STATUS "Downloading YOLOv4-tiny weights from ${YOLO_WEIGHTS_URL}...")
+    file(DOWNLOAD "${YOLO_WEIGHTS_URL}" "${YOLO_WEIGHTS_FILE}"
+         SHOW_PROGRESS
+         STATUS DOWNLOAD_STATUS)
+    list(GET DOWNLOAD_STATUS 0 STATUS_CODE)
+    if(NOT STATUS_CODE EQUAL 0)
+        message(WARNING "Failed to download YOLO weights. Status: ${DOWNLOAD_STATUS}")
+    else()
+        message(STATUS "YOLOv4-tiny weights downloaded successfully.")
+    endif()
+endif()
+
 find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets)
 find_package(OpenCV REQUIRED)
 

@@ -1,4 +1,4 @@
-# ignore build artifacts and generated database files
+# ignore build artifacts and large binaries
 build/
 *.o
 *.autosave
@@ -10,3 +10,8 @@ Makefile
 ui_mainwindow.h
 facedatabase.xml
 database_faces/
+
+# Large model weights (use download script or Git LFS)
+*.weights
+*.onnx
+models/*.weights
