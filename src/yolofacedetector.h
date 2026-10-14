@@ -19,7 +19,7 @@ class YOLOFaceDetector {
   bool loadONNXModel(const std::string& onnxPath);
 
   std::vector<cv::Rect> detectFaces(const cv::Mat& frame,
-                                    float confThreshold = 0.25f,
+                                    float confThreshold = 0.20f,
                                     float nmsThreshold = 0.4f);
 
   bool isLoaded() const;
