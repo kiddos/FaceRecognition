@@ -1,4 +1,17 @@
-# ignore temp files
+# ignore build artifacts and large binaries
+build/
+*.o
 *.autosave
 *.swp
 *.pro.user
+.qmake.stash
+FaceRecognition
+Makefile
+ui_mainwindow.h
+facedatabase.xml
+database_faces/
+
+# Large model weights (use download script or Git LFS)
+*.weights
+*.onnx
+models/*.weights
