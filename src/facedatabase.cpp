@@ -5,7 +5,6 @@
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
 #include <QDateTime>
-#include <iostream>
 #include <cmath>
 
 FaceDatabase::FaceDatabase() {
@@ -246,7 +245,7 @@ bool FaceDatabase::loadXml(const QString& xmlPath) {
           } else if (elemName == "ImagePath") {
             rec.imagePath = elemText;
           } else if (elemName == "Features") {
-            QStringList vals = elemText.split(' ', Qt::SkipEmptyParts);
+            QStringList vals = elemText.split(' ', QString::SkipEmptyParts);
             if (!vals.isEmpty()) {
               rec.featureVector = cv::Mat(1, vals.size(), CV_32FC1);
               for (int i = 0; i < vals.size(); ++i) {

@@ -15,3 +15,5 @@ database_faces/
 *.weights
 *.onnx
 models/*.weights
+
+.cache
