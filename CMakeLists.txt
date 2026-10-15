@@ -12,19 +12,18 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/ui)
 
 # Auto-download YOLO model weights if missing
-set(YOLO_WEIGHTS_FILE "${CMAKE_CURRENT_SOURCE_DIR}/models/yolov4-tiny.weights")
-set(YOLO_WEIGHTS_URL "https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.weights")
+set(YOLO_ONNX_FILE "${CMAKE_CURRENT_SOURCE_DIR}/models/yolov11n-face.onnx")
 
-if(NOT EXISTS "${YOLO_WEIGHTS_FILE}")
-    message(STATUS "Downloading YOLOv4-tiny weights from ${YOLO_WEIGHTS_URL}...")
-    file(DOWNLOAD "${YOLO_WEIGHTS_URL}" "${YOLO_WEIGHTS_FILE}"
-         SHOW_PROGRESS
-         STATUS DOWNLOAD_STATUS)
-    list(GET DOWNLOAD_STATUS 0 STATUS_CODE)
-    if(NOT STATUS_CODE EQUAL 0)
-        message(WARNING "Failed to download YOLO weights. Status: ${DOWNLOAD_STATUS}")
+if(NOT EXISTS "${YOLO_ONNX_FILE}")
+    message(STATUS "Preparing YOLOv11n face detection model...")
+    execute_process(
+        COMMAND bash "${CMAKE_CURRENT_SOURCE_DIR}/scripts/download_models.sh"
+        RESULT_VARIABLE DOWNLOAD_RESULT
+    )
+    if(NOT DOWNLOAD_RESULT EQUAL 0)
+        message(WARNING "Failed to prepare YOLOv11n face detection model.")
     else()
-        message(STATUS "YOLOv4-tiny weights downloaded successfully.")
+        message(STATUS "YOLOv11n face detection model ready.")
     endif()
 endif()
 
